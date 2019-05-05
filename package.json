@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "cypress:open": "cypress open",
-    "test": "cypress run"
+    "test": "cypress run",
+    "waitOn": "./node_modules/.bin/wait-on"
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true
@@ -16,6 +17,7 @@
     "cypress-cucumber-preprocessor": "1.11.0",
     "cypress-eslint-preprocessor": "1.2.2",
     "eslint": "5.16.0",
-    "eslint-plugin-cypress": "2.2.1"
+    "eslint-plugin-cypress": "2.2.1",
+    "wait-on": "3.2.0"
   }
 }
