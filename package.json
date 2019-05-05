@@ -5,7 +5,8 @@
   "scripts": {
     "cypress:open": "cypress open",
     "test": "cypress run",
-    "waitOn": "./node_modules/.bin/wait-on"
+    "waitOn": "./node_modules/.bin/wait-on",
+    "killPort": "./node_modules/.bin/kill-port"
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true
@@ -18,6 +19,7 @@
     "cypress-eslint-preprocessor": "1.2.2",
     "eslint": "5.16.0",
     "eslint-plugin-cypress": "2.2.1",
+    "kill-port": "^1.4.0",
     "wait-on": "3.2.0"
   }
 }
