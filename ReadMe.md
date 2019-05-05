@@ -17,8 +17,9 @@ Code:
 - The code itselve should be readble and understandable because of page object, so no comments in code just not to pollute it.
 
 CI readiness:
-- Just by adding some shell script to a simple jenkins job(npm install, cypress run) should be enough to execute the tests. 
-- Of course the tests are pointing to localhost, so node server should be up before running the tests. This can be orginized in a pipeline or some docker image, which is not done here. 
+- Just by adding some shell script to a simple jenkins job(npm install, npm test) should be enough to execute the tests. 
+- Of course the tests are pointing to localhost, so node server should be up before running the tests. This can be organized in a pipeline or some docker image, which is not done here. 
+- Updated: I have created a JenkinsFile with a pipeline script which will install dependencies, start the server, run the tests and then kill node server on port 3000. Please note that a path to node application should be provided in Jenkins file in order to start the server. 
 
 What is not done:
 - Docker, custom reporter. This will take more time and I'm trying to feat "2 hours" requirement, so will skip it.  

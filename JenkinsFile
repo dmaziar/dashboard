@@ -1,0 +1,37 @@
+pipeline{
+    agent  any
+    stages{
+        stage ('Checkout code'){
+            steps{
+              checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/dmaziar/dashboard.git']]])
+            }
+        }
+         stage ('Build'){
+            steps{
+            // install dependencies and cypress
+            echo 'npm install'
+            bat 'npm install'
+            }
+        }
+        stage ('start local server'){
+            steps{
+			  // in order to start node server please specify the path (e.g. npm start --prefix D:/projects/123')
+              bat 'start /min npm start
+              // wait for server to run
+              bat 'npm run waitOn http://localhost:3000'
+            }
+        }
+        stage ('Run the tests'){
+            steps{
+              bat 'npm test'
+            }
+        }
+    }
+ post {
+        // shutdown the server running in the background
+            always {
+                echo 'Stopping local server'
+                bat 'npm run killPort --port 3000'
+            }
+        }
+}
