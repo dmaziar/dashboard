@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "cypress:open": "cypress open",
-    "test": "cypress run",
+    "test": "./node_modules/.bin/cypress run",
     "waitOn": "./node_modules/.bin/wait-on",
     "killPort": "./node_modules/.bin/kill-port"
   },
